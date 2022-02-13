@@ -1,0 +1,258 @@
+{% extends 'cbtapp/index.html' %}
+{% block title %}TEST{% endblock %}
+{% block content %}
+<style>
+
+    .scrolly {
+  height: 600px;
+  overflow-y: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #a9a9a9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+</style>
+
+
+<div class="container  ">
+          <div class="d-flex justify-content-end text-danger pe-4">
+
+            <span class="text-light" onclick="timerFunction()" style="cursor: pointer;">
+              <i class="bi bi-clock-history timerOn" id="timer" ></i> Remaining &nbsp;
+            </span>
+
+              <span id="demo">00h 00m 00s </span>
+          </div>
+    <div class="fw-bold mb-1 mx-0">PASSAGE I</div>
+
+
+    <div class="row">
+        <div class="col-sm-8  scrolly border-end border-info">
+<!--            <iframe-->
+<!--                    src="https://drive.google.com/file/d/14xUAfhLiG2AQR-jdNcjwT9ZYlA0ZaHZr/preview"-->
+<!--                    width="100%"-->
+<!--                    height="100%"-->
+<!--            ></iframe>-->
+             In publishing and graphic design, Lorem ipsum is a placeholder
+              text commonly used to demonstrate the visual form of a document or
+              a typeface without relying on meaningful content. Lorem ipsum may
+              be used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available. In
+              publishing and graphic design, Lorem ipsum is a placeholder text
+              commonly used to demonstrate the visual form of a document or a
+              typeface without relying on meaningful content. Lorem ipsum may be
+              used as a placeholder before the final copy is available.
+        </div>
+
+
+        <div class="col-sm-4 scrolly mt-5 mt-md-0  ps-5 text-light">
+            <form action="/action_page.php">
+                <h4>Question <span id="questionNo">1</span></h4>
+                  <input type="radio" id="html" name="fav_language" value="HTML" class="js-radioInput" >
+                  <label for="html">HTML</label><br>
+                  <input type="radio" id="css" name="fav_language" value="CSS" class="js-radioInput" >
+                  <label for="css">CSS</label><br>
+                  <input type="radio" id="javascript" name="fav_language" value="JavaScript" class="js-radioInput" >
+                  <label for="javascript">JavaScript</label><br>
+                  <input type="radio" id="react" name="fav_language" value="react" class="js-radioInput" >
+                  <label for="javascript">React</label>
+            </form>
+            <br>
+            <button type="button" class="btn btn-outline-primary " id="saveBtn" onclick="saveFunction()"  >Save <i class="bi bi-save"></i></button>
+            <button type="button" class="btn btn-outline-warning "><i class="bi bi-flag"></i></button>
+            <br><br> <br><br>
+            <button type="button" class="btn btn-outline-light"><i class="bi bi-arrow-left-circle"></i> Back</button>
+            <button type="button" class="btn btn-outline-light">Next <i class="bi bi-arrow-right-circle"></i></button>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+<nav class="navbar navbar-light bg-light mt-5">
+    <div class="ms-2 d-inline btn-group" style="letter-spacing: 0px;" id="questionBox">
+<!--         for button in buttons -->
+<!--        <button type="button" class="btn btn-outline-dark btn-sm" > button </button>-->
+<!--          endfor -->
+
+    </div>
+</nav>
+
+<script>
+
+var countDownDate = (Date.now() + 3610000)
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  if ( hours < 10){
+  hours = "0"+hours
+  }
+  if ( minutes < 10){
+  minutes = "0"+minutes
+  }
+    if ( seconds < 10){
+  seconds = "0"+seconds
+  }
+
+  document.getElementById("demo").innerHTML =  hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "TIME UP";
+  }
+}, 1000);
+
+function timerFunction() {
+
+var timer = document.getElementById("timer");
+var demo = document.getElementById("demo");
+
+if (timer.classList.contains('timerOn')) {
+
+   demo.style.display = "none";
+   timer.classList.remove("timerOn");
+
+
+} else {
+demo.style.display = "block";
+timer.classList.add("timerOn");
+
+}
+
+
+
+}
+
+
+</script>
+
+<script>
+
+var doneList = {"1":"css", "2":"react" }
+var flagList = [12, 13, 14, 15, 16, 17]
+
+
+var currentQuestion =  1;
+    var qCount = 45;
+    var qArray = [];
+    for (let i = 1; i < qCount; i++) {
+  qArray.push({[i]: ''})
+}
+
+console.log(qArray)
+
+var questionBox = document.getElementById("questionBox");
+
+for (let i = 1; i < qArray.length +1; i++){
+
+var qBtn =  `
+<button type="button" class="btn btn-outline-dark btn-sm notDone" id=b${i} onclick="btnFunction(${i})">${i}</button>`
+
+questionBox.innerHTML += qBtn;
+}
+
+
+
+function btnFunction(id) {
+currentQuestion = id
+
+var clickedBtn  = document.getElementById('b'+ (id.toString()));
+document.getElementById('questionNo').innerHTML = id
+$("#questionNo").fadeOut(500).fadeIn(500)
+document.getElementById(doneList[id.toString()]).checked = true;
+
+}
+
+<!--var inputElems = document.getElementsByClassName("js-radioInput");-->
+<!--for (var i = inputElems.length - 1; i >= 0; &#45;&#45;i) {-->
+<!--  var elem = inputElems[i];-->
+<!--  elem.onchange = function () {-->
+<!--    document.getElementById("saveBtn").removeAttribute("disabled");-->
+<!--  };-->
+<!--}-->
+
+function saveFunction () {
+
+    var clickedBtn  = document.getElementById('b'+ (currentQuestion.toString()));
+    clickedBtn.classList.remove("btn-outline-dark");
+    clickedBtn.classList.add("btn-primary");
+<!--    var localcheck = document.querySelector('input[name="fav_language"]:checked').value;-->
+<!--    doneList[currentQuestion.toString()] = localcheck;-->
+<!--    currentQuestion.toString())-->
+
+
+
+try {
+  var savedAnswer = document.querySelector('input[name="fav_language"]:checked').value;
+
+  clearAnswers();
+ }
+catch(err) {
+  var savedAnswer = "not selected";
+}
+
+console.log('saved: ', currentQuestion, savedAnswer);
+
+}
+
+function clearAnswers() {
+
+
+ document.querySelector('input[name="fav_language"]:checked').checked = false;
+<!-- document.getElementById("saveBtn").setAttribute("disabled");-->
+<!-- document.getElementById("css").checked = true;-->
+}
+
+
+
+</script>
+
+
+{% endblock %}
